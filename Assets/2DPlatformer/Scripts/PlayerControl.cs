@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour {
 
     public bool VerificaContatoChao = true;
     public bool VerificaContatofase1 = false;
+    public bool VerificaContatofase2 = false;
+    public bool VerificaContatofase3 = false;
     public bool VerificaContatofase4 = false;
     public bool tutorial = false;
     public int pet = 0;
@@ -151,8 +153,17 @@ public class PlayerControl : MonoBehaviour {
         }
           if (collision2d.gameObject.CompareTag("gmf1"))
         {
-            VerificaContatofase4 = true;
+            VerificaContatofase1 = true;
         }
+        if (collision2d.gameObject.CompareTag("gmf2"))
+        {
+            VerificaContatofase2 = true;
+        }
+        if (collision2d.gameObject.CompareTag("gmf3"))
+        {
+            VerificaContatofase3 = true;
+        }
+
         if (collision2d.gameObject.CompareTag("gmf4"))
         {
             VerificaContatofase4 = true;
