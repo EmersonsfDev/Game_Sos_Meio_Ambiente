@@ -65,6 +65,8 @@ public class PlayerControl : MonoBehaviour {
    
     private Rigidbody2D rb2d;
 	private Animator anim;
+    public bool auxCheckValue;
+    public bool isPaused;
 
 	private bool facingRight = true;
 	// Use this for initialization
@@ -392,6 +394,10 @@ public class PlayerControl : MonoBehaviour {
     {
         yield return new WaitForSeconds(0);
         transform.position = lastCheckpoint.transform.position;
+        fase4FraseSound = true;
+        fase4FraseSound2 = true;
+        fase4FraseSound3 = true;
+        fase4FraseSound4 = true;
         tempo= 300.0f;
         speed=7;  
        
@@ -413,8 +419,10 @@ public class PlayerControl : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+
+
+
 }
-
-
 
 
