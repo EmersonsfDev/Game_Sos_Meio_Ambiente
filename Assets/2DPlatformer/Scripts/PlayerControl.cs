@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour {
     public bool VerificaContatofase2 = false;
     public bool VerificaContatofase3 = false;
     public bool VerificaContatofase4 = false;
+    public GameObject painelDoLixo;
+    public bool lixeira = false;
     public bool tutorial = false;
     public int pet = 0;
     public int organico = 0;
@@ -219,6 +221,20 @@ public class PlayerControl : MonoBehaviour {
             TextPontuacao.text = pontuacao.ToString();
         }
 
+        // jogar lixo na lixeira
+        if (collision2d.gameObject.CompareTag("lixeira"))
+        { 
+            lixeira = true;
+            if(lixeira)
+            {
+                painelDoLixo.SetActive(true);
+            }
+            if(metal==1){
+                metal=0;
+                TextMetal.text = metal.ToString(); 
+            }
+         }
+
         if (collision2d.gameObject.CompareTag("escorpiao") || collision2d.gameObject.CompareTag("rato")
         || collision2d.gameObject.CompareTag("mosca") || collision2d.gameObject.CompareTag("barata"))
         {
@@ -360,7 +376,11 @@ public class PlayerControl : MonoBehaviour {
             {
                 if(VerificaContatofase1){
                      StartCoroutine("GameOver");
-				}else if(VerificaContatofase4){
+				}
+                else if(VerificaContatofase2){
+                    StartCoroutine("GameOverFase2");
+				}
+                else if(VerificaContatofase4){
                     StartCoroutine("GameOverFase4");
 				}
             }
@@ -368,7 +388,11 @@ public class PlayerControl : MonoBehaviour {
             {
                 if(VerificaContatofase1){
                      StartCoroutine("Inicio");
-				}else if(VerificaContatofase4){
+				}
+                else if(VerificaContatofase2){
+                    StartCoroutine("InicioFase2");
+				}   
+                else if(VerificaContatofase4){
                     StartCoroutine("InicioFase4");
 				}   
             }
@@ -379,6 +403,12 @@ public class PlayerControl : MonoBehaviour {
         speed = 0;
         yield return new WaitForSeconds(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+    }
+     IEnumerator GameOver2()
+    {
+        speed = 0;
+        yield return new WaitForSeconds(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverFase2");
     }
      IEnumerator GameOverFase4()
     {
@@ -398,6 +428,13 @@ public class PlayerControl : MonoBehaviour {
         fraseSound6= true;
         fraseSound7= true;
         fraseSound8= true;
+        tempo= 300.0f;
+        speed=7;   
+    }
+     IEnumerator InicioFase2()
+    {
+        yield return new WaitForSeconds(0);
+        transform.position = lastCheckpoint.transform.position;
         tempo= 300.0f;
         speed=7;   
     }
@@ -430,10 +467,6 @@ public class PlayerControl : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-
-
-
-
 }
 
 
