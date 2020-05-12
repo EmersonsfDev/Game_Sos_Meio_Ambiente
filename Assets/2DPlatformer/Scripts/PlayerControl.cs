@@ -232,12 +232,6 @@ public class PlayerControl : MonoBehaviour {
             }
          }
 
-        if (collision2d.gameObject.CompareTag("escorpiao") || collision2d.gameObject.CompareTag("rato")
-        || collision2d.gameObject.CompareTag("mosca") || collision2d.gameObject.CompareTag("barata"))
-        {
-              Gerenciador.inst.PlayAudio(deathS);
-        }
-
         if (collision2d.gameObject.CompareTag("checkpoint"))
         {
             lastCheckpoint = collision2d.gameObject;
@@ -352,6 +346,12 @@ public class PlayerControl : MonoBehaviour {
             pontuacao+= 30;
             TextPontuacao.text = pontuacao.ToString();
         }
+        if (collision2d.gameObject.CompareTag("escorpiao") || collision2d.gameObject.CompareTag("rato")
+        || collision2d.gameObject.CompareTag("mosca") || collision2d.gameObject.CompareTag("barata") || collision2d.gameObject.CompareTag("agua")
+        || collision2d.gameObject.CompareTag("aranha"))
+        {
+            Gerenciador.inst.PlayAudio(deathS);
+        }
     }
     void OnCollisionEnter2D(Collision2D collision2d)
     {
@@ -362,7 +362,8 @@ public class PlayerControl : MonoBehaviour {
 
         //morrer
         if (collision2d.gameObject.CompareTag("escorpiao") || collision2d.gameObject.CompareTag("rato")
-        || collision2d.gameObject.CompareTag("mosca") || collision2d.gameObject.CompareTag("barata") || collision2d.gameObject.CompareTag("agua") )
+        || collision2d.gameObject.CompareTag("mosca") || collision2d.gameObject.CompareTag("barata") || collision2d.gameObject.CompareTag("agua")
+        || collision2d.gameObject.CompareTag("aranha"))
         {
             collision2d.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(500,0));
             Gerenciador.inst.PlayAudio(deathSound);

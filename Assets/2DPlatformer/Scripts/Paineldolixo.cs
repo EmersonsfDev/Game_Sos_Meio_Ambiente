@@ -57,6 +57,7 @@ public class Paineldolixo : MonoBehaviour
        painelDoLixo4.SetActive(false);  
        painelDoLixo5.SetActive(false);
        painelDoLixo.SetActive(true);
+       
    }
 
 }
