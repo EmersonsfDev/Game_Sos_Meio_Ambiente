@@ -222,16 +222,13 @@ public class PlayerControl : MonoBehaviour {
         }
 
         // jogar lixo na lixeira
-        if (collision2d.gameObject.CompareTag("lixeira"))
+        if (collision2d.gameObject.CompareTag("lixeira") && metal > 0 && organico>0 && papel > 0 && pet> 0 && vidro > 0 )
         { 
             lixeira = true;
             if(lixeira)
             {
                 painelDoLixo.SetActive(true);
-            }
-            if(metal==1){
-                metal=0;
-                TextMetal.text = metal.ToString(); 
+                speed=0;
             }
          }
 

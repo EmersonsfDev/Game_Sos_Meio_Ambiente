@@ -9,6 +9,7 @@ public class Paineldolixo : MonoBehaviour
     public GameObject painelDoLixo3;
     public GameObject painelDoLixo4;
     public GameObject painelDoLixo5;
+    public GameObject kauan;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +37,10 @@ public class Paineldolixo : MonoBehaviour
     public void OpenPainel5(){
       
        painelDoLixo5.SetActive(true);
+   }
+   public void ClosePainel(){
+      
+       painelDoLixo.SetActive(false);
+       kauan.GetComponent<PlayerControl>().speed = 7; 
    }
 }
