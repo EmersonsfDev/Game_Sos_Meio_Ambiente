@@ -24,23 +24,39 @@ public class Paineldolixo : MonoBehaviour
 
    public void OpenPainel2(){
       
+       painelDoLixo.SetActive(false);
        painelDoLixo2.SetActive(true);
+
    }
     public void OpenPainel3(){
-      
+       painelDoLixo.SetActive(false);
+       painelDoLixo2.SetActive(false);
        painelDoLixo3.SetActive(true);
    }
     public void OpenPainel4(){
-      
+       painelDoLixo.SetActive(false);
+       painelDoLixo2.SetActive(false);
+       painelDoLixo3.SetActive(false);
        painelDoLixo4.SetActive(true);
    }
     public void OpenPainel5(){
-      
+
+       painelDoLixo.SetActive(false);
+       painelDoLixo2.SetActive(false);
+       painelDoLixo3.SetActive(false);
+       painelDoLixo4.SetActive(false);  
        painelDoLixo5.SetActive(true);
    }
    public void ClosePainel(){
       
-       painelDoLixo.SetActive(false);
-       kauan.GetComponent<PlayerControl>().speed = 7; 
+       painelDoLixo5.SetActive(false);
    }
+    public void RespostaErrada(){
+       painelDoLixo2.SetActive(false);
+       painelDoLixo3.SetActive(false);
+       painelDoLixo4.SetActive(false);  
+       painelDoLixo5.SetActive(false);
+       painelDoLixo.SetActive(true);
+   }
+
 }
