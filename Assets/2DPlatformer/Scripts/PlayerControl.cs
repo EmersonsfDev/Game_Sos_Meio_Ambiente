@@ -402,7 +402,7 @@ public class PlayerControl : MonoBehaviour {
         yield return new WaitForSeconds(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
     }
-     IEnumerator GameOver2()
+     IEnumerator GameOverFase2()
     {
         speed = 0;
         yield return new WaitForSeconds(0);
