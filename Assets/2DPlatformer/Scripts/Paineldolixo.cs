@@ -49,7 +49,7 @@ public class Paineldolixo : MonoBehaviour
    }
    public void ClosePainel(){
       
-       painelDoLixo5.SetActive(false);
+      UnityEngine.SceneManagement.SceneManager.LoadScene("SelecionarFase");
    }
     public void RespostaErrada(){
        painelDoLixo2.SetActive(false);
