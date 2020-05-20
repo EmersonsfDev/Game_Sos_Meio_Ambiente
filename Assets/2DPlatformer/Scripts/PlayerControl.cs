@@ -36,6 +36,16 @@ public class PlayerControl : MonoBehaviour {
     public bool fraseSound7 = true;
     public bool fraseSound8 = true;
     public bool fraseSound9 = true;
+
+    public bool fraseFase2Sound = true;
+    public bool fraseFase2Sound2 = true;
+    public bool fraseFase2Sound3 = true;
+    public bool fraseFase2Sound4 = true;
+    public bool fraseFase2Sound5 = true;
+    public bool fraseFase2Sound6 = true;
+    public bool fraseFase2Sound7 = true;
+    public bool fraseFase2Sound8 = true;
+
     public bool fase4FraseSound = true;
     public bool fase4FraseSound2 = true;
     public bool fase4FraseSound3 = true;
@@ -62,6 +72,16 @@ public class PlayerControl : MonoBehaviour {
     public AudioClip frase7;
     public AudioClip frase8;
     public AudioClip frase9;
+
+    public AudioClip fraseFase21;
+    public AudioClip fraseFase22;
+    public AudioClip fraseFase23;
+    public AudioClip fraseFase24;
+    public AudioClip fraseFase25;
+    public AudioClip fraseFase26;
+    public AudioClip fraseFase27;
+    public AudioClip fraseFase28;
+    
     public AudioClip Fase4Frase1;
     public AudioClip Fase4Frase2;
     public AudioClip Fase4Frase3;
@@ -171,8 +191,6 @@ public class PlayerControl : MonoBehaviour {
             VerificaContatofase4 = true;
         }
         
-      
-
         //pegar lixo
         if (collision2d.gameObject.CompareTag("organico"))
         {
@@ -251,7 +269,7 @@ public class PlayerControl : MonoBehaviour {
             UnityEngine.SceneManagement.SceneManager.LoadScene("QuizFase4");
         }
           
-        //audios
+        //audios fase1
         if (collision2d.gameObject.CompareTag("frase")){
             if(fraseSound){
                  GetComponent<AudioSource> ().PlayOneShot (frase);
@@ -300,7 +318,60 @@ public class PlayerControl : MonoBehaviour {
                  fraseSound8 = false;
 			}
         }
-         if (collision2d.gameObject.CompareTag("Fase4Frase1")){
+
+        //audios fase2 
+
+         if (collision2d.gameObject.CompareTag("fraseFase21")){
+            if(fraseFase2Sound){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase21);
+                 fraseFase2Sound = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase22")){
+            if(fraseFase2Sound2){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase22);
+                 fraseFase2Sound2 = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase23")){
+            if(fraseFase2Sound3){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase23);
+                 fraseFase2Sound3 = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase24")){
+            if(fraseFase2Sound4){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase24);
+                 fraseFase2Sound4 = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase25")){
+            if(fraseFase2Sound5){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase25);
+                 fraseFase2Sound5 = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase26")){
+            if(fraseFase2Sound6){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase26);
+                 fraseFase2Sound6 = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase27")){
+            if(fraseFase2Sound7){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase27);
+                 fraseFase2Sound7 = false;
+			}
+        }
+        if (collision2d.gameObject.CompareTag("fraseFase28")){
+            if(fraseFase2Sound8){
+                 GetComponent<AudioSource> ().PlayOneShot (fraseFase28);
+                 fraseFase2Sound8 = false;
+			}
+        }
+
+        //audios fase4
+        if (collision2d.gameObject.CompareTag("Fase4Frase1")){
             if(fase4FraseSound){
                  GetComponent<AudioSource> ().PlayOneShot (Fase4Frase1);
                  fase4FraseSound = false;
@@ -433,6 +504,14 @@ public class PlayerControl : MonoBehaviour {
     {
         yield return new WaitForSeconds(0);
         transform.position = lastCheckpoint.transform.position;
+        fraseFase2Sound= true;
+        fraseFase2Sound2= true;
+        fraseFase2Sound3= true;
+        fraseFase2Sound4= true;
+        fraseFase2Sound5= true;
+        fraseFase2Sound6= true;
+        fraseFase2Sound7= true;
+        fraseFase2Sound8= true;
         tempo= 300.0f;
         speed=7;   
     }

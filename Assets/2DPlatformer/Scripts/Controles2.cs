@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controles4 : MonoBehaviour
+public class Controles2 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,9 +15,9 @@ public class Controles4 : MonoBehaviour
     {
         
     }
-    public void OpenFase4()
+    public void OpenFase2()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase4");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase2");
     }
     public void VoltarSelecionar ()
     {
