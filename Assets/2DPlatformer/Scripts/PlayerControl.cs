@@ -357,18 +357,7 @@ public class PlayerControl : MonoBehaviour {
                  fraseFase2Sound6 = false;
 			}
         }
-        if (collision2d.gameObject.CompareTag("fraseFase27")){
-            if(fraseFase2Sound7){
-                 GetComponent<AudioSource> ().PlayOneShot (fraseFase27);
-                 fraseFase2Sound7 = false;
-			}
-        }
-        if (collision2d.gameObject.CompareTag("fraseFase28")){
-            if(fraseFase2Sound8){
-                 GetComponent<AudioSource> ().PlayOneShot (fraseFase28);
-                 fraseFase2Sound8 = false;
-			}
-        }
+     
 
         //audios fase4
         if (collision2d.gameObject.CompareTag("Fase4Frase1")){

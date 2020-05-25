@@ -5,6 +5,8 @@ using UnityEngine;
 public class pause : MonoBehaviour
 {
     public GameObject PainelPause;
+    public GameObject Jogador;
+     private bool isPaused;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class pause : MonoBehaviour
     }
      public void Fechar(){
         PainelPause.SetActive(false);
+        isPaused = false;
+        Jogador.GetComponent<PlayerControl>().enabled = true;
 	 }
     public void Menu()
     {
