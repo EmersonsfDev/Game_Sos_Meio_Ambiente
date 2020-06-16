@@ -438,6 +438,9 @@ public class PlayerControl : MonoBehaviour {
                 else if(VerificaContatofase2){
                     StartCoroutine("GameOverFase2");
 				}
+                else if(VerificaContatofase3){
+                    StartCoroutine("GameOverFase3");
+				}
                 else if(VerificaContatofase4){
                     StartCoroutine("GameOverFase4");
 				}
@@ -450,6 +453,9 @@ public class PlayerControl : MonoBehaviour {
                 else if(VerificaContatofase2){
                     StartCoroutine("InicioFase2");
 				}   
+                 else if(VerificaContatofase3){
+                    StartCoroutine("InicioFase3");
+				}  
                 else if(VerificaContatofase4){
                     StartCoroutine("InicioFase4");
 				}   
@@ -467,6 +473,12 @@ public class PlayerControl : MonoBehaviour {
         speed = 0;
         yield return new WaitForSeconds(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverFase2");
+    }
+     IEnumerator GameOverFase3()
+    {
+        speed = 0;
+        yield return new WaitForSeconds(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverFase3");
     }
      IEnumerator GameOverFase4()
     {
@@ -490,6 +502,21 @@ public class PlayerControl : MonoBehaviour {
         speed=7;   
     }
      IEnumerator InicioFase2()
+    {
+        yield return new WaitForSeconds(0);
+        transform.position = lastCheckpoint.transform.position;
+        fraseFase2Sound= true;
+        fraseFase2Sound2= true;
+        fraseFase2Sound3= true;
+        fraseFase2Sound4= true;
+        fraseFase2Sound5= true;
+        fraseFase2Sound6= true;
+        fraseFase2Sound7= true;
+        fraseFase2Sound8= true;
+        tempo= 300.0f;
+        speed=7;   
+    }
+       IEnumerator InicioFase3()
     {
         yield return new WaitForSeconds(0);
         transform.position = lastCheckpoint.transform.position;
