@@ -19,6 +19,22 @@ public class Controles : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Fase1");
     }
+    public void OpenFase2()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase2");
+    }
+    public void OpenFase3()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase3");
+    }
+    public void OpenFase4()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase4");
+    }
+    public void OpenFase5()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase5");
+    }
     public void VoltarSelecionar ()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SelecionarFase");

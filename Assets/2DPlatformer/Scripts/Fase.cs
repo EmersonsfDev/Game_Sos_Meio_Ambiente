@@ -19,11 +19,11 @@ public class Fase : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Controles");
     }
-    public void OpenFase2()
+    public void OpenControles2()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Controles2");
     }
-    public void OpenFase3()
+    public void OpenControles3()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Controles3");
     }
@@ -31,7 +31,7 @@ public class Fase : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Controles4");
     }
-    public void OpenFase5()
+    public void OpenControles5()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Controles5");
     }

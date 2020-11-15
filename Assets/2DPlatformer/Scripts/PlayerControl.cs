@@ -47,10 +47,19 @@ public class PlayerControl : MonoBehaviour {
     public bool fraseFase2Sound7 = true;
     public bool fraseFase2Sound8 = true;
 
+    public bool fase3FraseSound = true;
+    public bool fase3FraseSound2 = true;
+    public bool fase3FraseSound3 = true;
+    public bool fase3FraseSound4 = true;
+    public bool fase3FraseSound5 = true;
+
+
     public bool fase4FraseSound = true;
     public bool fase4FraseSound2 = true;
     public bool fase4FraseSound3 = true;
     public bool fase4FraseSound4 = true;
+
+
     public Text TextPet;
     public Text TextOrganico;
     public Text TextVidro;
@@ -87,7 +96,12 @@ public class PlayerControl : MonoBehaviour {
     public AudioClip Fase4Frase2;
     public AudioClip Fase4Frase3;
      public AudioClip Fase4Frase4;
-   
+
+    public AudioClip frase1fase3;
+    public AudioClip frase2fase3;
+    public AudioClip frase3fase3;
+     public AudioClip frase4fase3; 
+     public AudioClip frase5fase3;
     private Rigidbody2D rb2d;
 	private Animator anim;
     public bool auxCheckValue;
@@ -270,6 +284,10 @@ public class PlayerControl : MonoBehaviour {
                  fraseSound9 = false;     
 			}
         }
+         if (collision2d.gameObject.CompareTag("final3"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("QuizFase3");
+        }
         if (collision2d.gameObject.CompareTag("final4"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("QuizFase4");
@@ -364,6 +382,39 @@ public class PlayerControl : MonoBehaviour {
 			}
         }
      
+         //audios fase3
+        if (collision2d.gameObject.CompareTag("frase1fase3")){
+            if(fase3FraseSound){
+                    GetComponent<AudioSource> ().PlayOneShot (frase1fase3);
+                    fase3FraseSound = false;
+            }
+        }
+         if (collision2d.gameObject.CompareTag("frase2fase3")){
+            if(fase3FraseSound2){
+                    GetComponent<AudioSource> ().PlayOneShot (frase2fase3);
+                    fase3FraseSound2 = false;
+            }
+        }
+         if (collision2d.gameObject.CompareTag("frase3fase3")){
+            if(fase3FraseSound3){
+                    GetComponent<AudioSource> ().PlayOneShot (frase3fase3);
+                    fase3FraseSound3 = false;
+            }
+        }
+         if (collision2d.gameObject.CompareTag("frase4fase3")){
+            if(fase3FraseSound4){
+                    GetComponent<AudioSource> ().PlayOneShot (frase4fase3);
+                    fase3FraseSound4 = false;
+            }
+        }
+         if (collision2d.gameObject.CompareTag("frase5fase3")){
+            if(fase3FraseSound5){
+                    GetComponent<AudioSource> ().PlayOneShot (frase5fase3);
+                    fase3FraseSound5 = false;
+            }
+        }
+
+
 
         //audios fase4
         if (collision2d.gameObject.CompareTag("Fase4Frase1")){
@@ -532,6 +583,11 @@ public class PlayerControl : MonoBehaviour {
      
         yield return new WaitForSeconds(0);
         transform.position = lastCheckpoint.transform.position;
+        fase3FraseSound= true;
+        fase3FraseSound2= true;
+        fase3FraseSound3= true;
+        fase3FraseSound4= true;
+        fase3FraseSound5= true;
         tempo= 300.0f;
         vivo=true;
     }

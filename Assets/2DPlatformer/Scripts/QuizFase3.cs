@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controles2 : MonoBehaviour
+public class QuizFase3 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,13 +15,12 @@ public class Controles2 : MonoBehaviour
     {
         
     }
-    public void OpenFase2()
+    public void Perdeu3()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Fase2");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverFase3");
     }
-    public void VoltarSelecionar ()
+    public void PassarDeFase3()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SelecionarFase");
     }
-    
 }
