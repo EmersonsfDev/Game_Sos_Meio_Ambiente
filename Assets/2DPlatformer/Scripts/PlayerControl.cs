@@ -13,16 +13,77 @@ public class PlayerControl : MonoBehaviour {
     public bool VerificaContatofase2 = false;
     public bool VerificaContatofase3 = false;
     public bool VerificaContatofase4 = false;
+    public bool VerificaContatofase5 = false;
     public GameObject painelDoLixo;
+    public GameObject painelDoLixo2;
+    public GameObject painelDoLixo3;
+    public GameObject painelDoLixo4;
+    public GameObject painelDoLixo5;
+    public GameObject painelDoLixo6;
+    public GameObject c1;
+     public GameObject c2;
+      public GameObject c3;
+       public GameObject c4;
+        public GameObject c5;
+         public GameObject c6;
+          public GameObject c7;
+          public GameObject c8;
+     public GameObject rreduzir;
+     public GameObject ereduzir;
+     public GameObject dreduzir;      
+     public GameObject ureduzir;
+     public GameObject zreduzir;
+     public GameObject ireduzir;
+     public GameObject r2reduzir;
+
+     public GameObject rreciclar;
+     public GameObject ereciclar;
+     public GameObject creciclar;
+     public GameObject ireciclar;
+     public GameObject c2reciclar;
+     public GameObject lreciclar;
+     public GameObject areciclar;
+     public GameObject r2reciclar;
+
+     public GameObject rreutilizar;
+     public GameObject ereutilizar;
+     public GameObject ureutilizar;
+     public GameObject treutilizar;
+     public GameObject ireutilizar;
+     public GameObject lreutilizar;
+     public GameObject i2reutilizar;
+     public GameObject zreutilizar;
+     public GameObject areutilizar;
+     public GameObject r2reutilizar;
+    
+
+   
+
     public bool lixeira = false;
+    public bool lixeira2 = false;
+    public bool lixeira3 = false;
+    public bool lixeira4 = false;
+    public bool lixeira5 = false;
+
     public bool tutorial = false;
     public int pet = 0;
     public int organico = 0;
     public int vidro = 0;
     public int papel = 0;
     public int metal = 0;
+    public int r3 = 0;
     public int vida = 5;
     public int pontuacao=0;
+     public int a=0;
+     public int b=0;
+     public int c=0;
+     public int d=0;
+     public int e=0;
+     public int f=0;
+     public int g=0;
+     public int h=0;
+     public int painel=0;
+    public int controle=0;
     public float tempo = 300.0f;
     public bool relogio= true;
     public Text txt;
@@ -37,6 +98,8 @@ public class PlayerControl : MonoBehaviour {
     public bool fraseSound7 = true;
     public bool fraseSound8 = true;
     public bool fraseSound9 = true;
+     public bool seilaSound = true;
+      public bool seila2Sound = true;
 
     public bool fraseFase2Sound = true;
     public bool fraseFase2Sound2 = true;
@@ -59,6 +122,13 @@ public class PlayerControl : MonoBehaviour {
     public bool fase4FraseSound3 = true;
     public bool fase4FraseSound4 = true;
 
+    public bool fase5FraseSound = true;
+    public bool fase5FraseSound2 = true;
+    public bool fase5FraseSound3 = true;
+    public bool fase5FraseSound4 = true;
+    public bool fase5FraseSound5 = true;
+    public bool fase5FraseSound6 = true;
+
 
     public Text TextPet;
     public Text TextOrganico;
@@ -67,6 +137,7 @@ public class PlayerControl : MonoBehaviour {
     public Text TextMetal;
     public Text TextVida;
     public Text TextPontuacao;
+    public Text TextR3;
 
     public float speed = 7f;
     public AudioClip jumpSound;
@@ -82,6 +153,8 @@ public class PlayerControl : MonoBehaviour {
     public AudioClip frase7;
     public AudioClip frase8;
     public AudioClip frase9;
+    public AudioClip seila;
+    public AudioClip seila2;
 
     public AudioClip fraseFase21;
     public AudioClip fraseFase22;
@@ -102,6 +175,13 @@ public class PlayerControl : MonoBehaviour {
     public AudioClip frase3fase3;
      public AudioClip frase4fase3; 
      public AudioClip frase5fase3;
+
+    public AudioClip frase1fase5;
+    public AudioClip frase2fase5;
+    public AudioClip frase3fase5;
+     public AudioClip frase4fase5; 
+     public AudioClip frase5fase5;
+     public AudioClip frase6fase5;
     private Rigidbody2D rb2d;
 	private Animator anim;
     public bool auxCheckValue;
@@ -210,6 +290,10 @@ public class PlayerControl : MonoBehaviour {
         {
             VerificaContatofase4 = true;
         }
+        if (collision2d.gameObject.CompareTag("gmf5"))
+        {
+            VerificaContatofase5 = true;
+        }
         
         //pegar lixo
         if (collision2d.gameObject.CompareTag("organico"))
@@ -258,6 +342,25 @@ public class PlayerControl : MonoBehaviour {
             pontuacao += 20;
             TextPontuacao.text = pontuacao.ToString();
         }
+          if (collision2d.gameObject.CompareTag("tocha"))
+        {
+            Destroy(collision2d.gameObject);
+        }
+          if (collision2d.gameObject.CompareTag("r3"))
+        {
+            Gerenciador.inst.PlayAudio(coletSound);
+            Destroy(collision2d.gameObject);
+            r3++;
+            TextR3.text = r3.ToString();
+              
+        }
+          if (collision2d.gameObject.CompareTag("checkpoit"))
+        {
+            Gerenciador.inst.PlayAudio(coletSound);
+            Destroy(collision2d.gameObject);
+            tempo= 300.0f;
+              
+        }
 
         // jogar lixo na lixeira
         if (collision2d.gameObject.CompareTag("lixeira") && metal > 0 && organico>0 && papel > 0 && pet> 0 && vidro > 0 )
@@ -269,6 +372,334 @@ public class PlayerControl : MonoBehaviour {
                 speed=0;
             }
          }
+           if (collision2d.gameObject.CompareTag("lixeira") &&VerificaContatofase5 )
+        { 
+            lixeira = true;
+            if(lixeira)
+            {
+                painelDoLixo.SetActive(true);
+                speed=0;
+            }
+         }
+       
+           if (collision2d.gameObject.CompareTag("lixeira2") &&VerificaContatofase5 )
+        { 
+            lixeira2 = true;
+            if(lixeira2)
+            {
+                painelDoLixo4.SetActive(true);
+             speed=0;
+            }
+         }
+           if (collision2d.gameObject.CompareTag("lixeira3") &&VerificaContatofase5 )
+        { 
+            lixeira3 = true;
+            if(lixeira3)
+            {
+                painelDoLixo3.SetActive(true);
+            
+            }
+         }
+           if (collision2d.gameObject.CompareTag("lixeira4") &&VerificaContatofase5 )
+        { 
+            lixeira4 = true;
+            if(lixeira4)
+            {
+                painelDoLixo4.SetActive(true);
+            speed=0;
+            }
+         }
+           if (collision2d.gameObject.CompareTag("lixeira5") &&VerificaContatofase5 )
+        { 
+            lixeira5 = true;
+            if(lixeira5)
+            {
+                painelDoLixo5.SetActive(true);
+            
+            }
+         }
+           if (collision2d.gameObject.CompareTag("bili")  )
+        { 
+                painelDoLixo6.SetActive(true);
+          
+         }
+            if (collision2d.gameObject.CompareTag("close6")  )
+        { 
+                painelDoLixo6.SetActive(false);
+          
+         }
+               if (collision2d.gameObject.CompareTag("c1")  )
+        { 
+                c1.SetActive(true);
+                a+=1;
+                if(a==1){
+                    controle+=1;
+                }
+                
+          
+         }
+                if (collision2d.gameObject.CompareTag("c2")  )
+        { 
+                c2.SetActive(true);
+                  
+                  b+=1;
+                if(b==1){
+                    controle+=1;
+                }
+                
+         }
+                  if (collision2d.gameObject.CompareTag("c3")  )
+        { 
+                c3.SetActive(true);
+                  c+=1;
+                if(c==1){
+                    controle+=1;
+                }
+         }
+                  if (collision2d.gameObject.CompareTag("c4")  )
+        { 
+                c4.SetActive(true);
+                   d+=1;
+                if(d==1){
+                    controle+=1;
+                }
+         }
+                  if (collision2d.gameObject.CompareTag("c5")  )
+        { 
+                c5.SetActive(true);
+                   e+=1;
+                if(e==1){
+                    controle+=1;
+                }
+         }
+                  if (collision2d.gameObject.CompareTag("c6")  )
+        { 
+                c6.SetActive(true);
+                  f+=1;
+                if(f==1){
+                    controle+=1;
+                }
+         }
+                  if (collision2d.gameObject.CompareTag("c7")  )
+        { 
+                c7.SetActive(true);
+                   g+=1;
+                if(g==1){
+                    controle+=1;
+                }
+          
+         }
+               if (collision2d.gameObject.CompareTag("moeda")  )
+        { 
+                c8.SetActive(true);
+                   h+=1;
+                if(h==1){
+                    controle+=1;
+                }
+          
+         }
+
+         if (collision2d.gameObject.CompareTag("rreduzir")  )
+        { 
+                rreduzir.SetActive(true);
+                Destroy(collision2d.gameObject);
+                painel+=1;
+                Gerenciador.inst.PlayAudio(coletSound);
+          
+         }
+           if (collision2d.gameObject.CompareTag("ereduzir")  )
+        { 
+                ereduzir.SetActive(true);
+                Destroy(collision2d.gameObject);
+                 painel+=1;
+                 Gerenciador.inst.PlayAudio(coletSound);
+         }
+           if (collision2d.gameObject.CompareTag("dreduzir")  )
+        { 
+                dreduzir.SetActive(true);
+                Destroy(collision2d.gameObject);
+                 painel+=1;
+                 Gerenciador.inst.PlayAudio(coletSound);
+         }
+           if (collision2d.gameObject.CompareTag("ureduzir")  )
+        { 
+                ureduzir.SetActive(true);
+            Destroy(collision2d.gameObject);
+             painel+=1;
+             Gerenciador.inst.PlayAudio(coletSound);
+         }
+           if (collision2d.gameObject.CompareTag("zreduzir")  )
+        { 
+                zreduzir.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+           if (collision2d.gameObject.CompareTag("ireduzir")  )
+        { 
+                ireduzir.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+           if (collision2d.gameObject.CompareTag("r2reduzir")  )
+        { 
+                r2reduzir.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+
+           if (collision2d.gameObject.CompareTag("rreciclar")  )
+        { 
+                rreciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("rreciclar")  )
+        { 
+                rreciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("rreciclar")  )
+        { 
+                rreciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("ereciclar")  )
+        { 
+                ereciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("creciclar")  )
+        { 
+                creciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("ireciclar")  )
+        { 
+                ireciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("c2reciclar")  )
+        { 
+                c2reciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+             if (collision2d.gameObject.CompareTag("lreciclar")  )
+        { 
+                lreciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+               if (collision2d.gameObject.CompareTag("areciclar")  )
+        { 
+                areciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+                if (collision2d.gameObject.CompareTag("r2reciclar")  )
+        { 
+                r2reciclar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+                if (collision2d.gameObject.CompareTag("rreutilizar")  )
+        { 
+                rreutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+               if (collision2d.gameObject.CompareTag("ereutilizar")  )
+        { 
+                ereutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+               if (collision2d.gameObject.CompareTag("ureutilizar")  )
+        { 
+                ureutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+       if (collision2d.gameObject.CompareTag("treutilizar")  )
+        { 
+                treutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+       if (collision2d.gameObject.CompareTag("ireutilizar")  )
+        { 
+                ireutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+       if (collision2d.gameObject.CompareTag("lreutilizar")  )
+        { 
+                lreutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+       if (collision2d.gameObject.CompareTag("i2reutilizar")  )
+        { 
+                i2reutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+       if (collision2d.gameObject.CompareTag("zreutilizar")  )
+        { 
+                zreutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
+       if (collision2d.gameObject.CompareTag("areutilizar")  )
+        { 
+                areutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+         if (collision2d.gameObject.CompareTag("r2reutilizar")  )
+        { 
+                r2reutilizar.SetActive(true);
+          Destroy(collision2d.gameObject);
+           painel+=1;
+           Gerenciador.inst.PlayAudio(coletSound);
+         }
+
 
         if (collision2d.gameObject.CompareTag("checkpoint"))
         {
@@ -291,6 +722,10 @@ public class PlayerControl : MonoBehaviour {
         if (collision2d.gameObject.CompareTag("final4"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("QuizFase4");
+        }
+          if (collision2d.gameObject.CompareTag("final5") && controle==8 && painel>=25)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("parabens");
         }
           
         //audios fase1
@@ -340,6 +775,18 @@ public class PlayerControl : MonoBehaviour {
             if(fraseSound8){
                  GetComponent<AudioSource> ().PlayOneShot (frase8);
                  fraseSound8 = false;
+			}
+        }
+           if (collision2d.gameObject.CompareTag("seila")){
+            if(seilaSound){
+                 GetComponent<AudioSource> ().PlayOneShot (seila);
+                 seilaSound = false;
+			}
+        }
+           if (collision2d.gameObject.CompareTag("seila2")){
+            if(seila2Sound){
+                 GetComponent<AudioSource> ().PlayOneShot (seila2);
+                 seila2Sound = false;
 			}
         }
 
@@ -442,6 +889,46 @@ public class PlayerControl : MonoBehaviour {
 			}
         }
 
+        //audiosfase5
+
+      if (collision2d.gameObject.CompareTag("1")){
+            if(fase5FraseSound){
+                 GetComponent<AudioSource> ().PlayOneShot (frase1fase5);
+                 fase5FraseSound = false;
+			}
+        }
+          if (collision2d.gameObject.CompareTag("2")){
+            if(fase5FraseSound2){
+                 GetComponent<AudioSource> ().PlayOneShot (frase2fase5);
+                 fase5FraseSound2 = false;
+			}
+        }
+          if (collision2d.gameObject.CompareTag("3")){
+            if(fase3FraseSound3){
+                 GetComponent<AudioSource> ().PlayOneShot (frase3fase5);
+                 fase3FraseSound3 = false;
+			}
+        }
+          if (collision2d.gameObject.CompareTag("4")){
+            if(fase5FraseSound4){
+                 GetComponent<AudioSource> ().PlayOneShot (frase4fase5);
+                 fase5FraseSound4 = false;
+			}
+        }
+          if (collision2d.gameObject.CompareTag("5")){
+            if(fase5FraseSound5){
+                 GetComponent<AudioSource> ().PlayOneShot (frase5fase5);
+                 fase5FraseSound5 = false;
+			}
+        }
+          if (collision2d.gameObject.CompareTag("6")){
+            if(fase5FraseSound6){
+                 GetComponent<AudioSource> ().PlayOneShot (frase6fase5);
+                 fase5FraseSound6 = false;
+			}
+        }
+
+
         //pontuacao inimigos
         if (collision2d.gameObject.CompareTag("escorpiao"))
         {
@@ -504,6 +991,9 @@ public class PlayerControl : MonoBehaviour {
                 else if(VerificaContatofase4){
                     StartCoroutine("GameOverFase4");
 				}
+                else if(VerificaContatofase5){
+                    StartCoroutine("GameOverFase5");
+				}
             }
             else if(vida <5 && vida>=0)
             {
@@ -519,6 +1009,9 @@ public class PlayerControl : MonoBehaviour {
                 else if(VerificaContatofase4){
                     StartCoroutine("InicioFase4");
 				}   
+                 else if(VerificaContatofase5){
+                    StartCoroutine("InicioFase5");
+				} 
             }
         }
    
@@ -546,6 +1039,12 @@ public class PlayerControl : MonoBehaviour {
         vivo=false;
         yield return new WaitForSeconds(0);
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverFase4");
+    }
+       IEnumerator GameOverFase5()
+    {
+        vivo=false;
+        yield return new WaitForSeconds(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverFase5");
     }
     IEnumerator Inicio()
     {
@@ -599,6 +1098,14 @@ public class PlayerControl : MonoBehaviour {
         fase4FraseSound2 = true;
         fase4FraseSound3 = true;
         fase4FraseSound4 = true;
+        tempo= 300.0f;
+        vivo=true; 
+       
+    }
+        IEnumerator InicioFase5()
+    {
+        yield return new WaitForSeconds(0);
+        transform.position = lastCheckpoint.transform.position;
         tempo= 300.0f;
         vivo=true; 
        

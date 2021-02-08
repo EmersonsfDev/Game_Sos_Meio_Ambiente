@@ -19,6 +19,14 @@ public class Menu : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SelecionarFase");
     }
+     public void OpenCreditos()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Creditos");
+    }
+     public void OpenMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
     public void Exit()
     {
         Application.Quit();
